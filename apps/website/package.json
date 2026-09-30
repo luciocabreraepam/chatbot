@@ -1,16 +1,42 @@
 {
   "name": "website",
-  "version": "0.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vp dev",
-    "build": "tsc && vp build",
-    "preview": "vp preview"
+    "build": "react-router build",
+    "dev": "react-router dev",
+    "start": "react-router-serve ./build/server/index.js",
+    "typecheck": "react-router typegen && tsc"
+  },
+  "dependencies": {
+    "@react-router/node": "catalog:",
+    "@react-router/serve": "catalog:",
+    "@stylexjs/stylex": "^0.18.3",
+    "isbot": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "react-markdown": "^9.0.1",
+    "react-router": "catalog:",
+    "react-syntax-highlighter": "^15.6.1",
+    "remark-gfm": "^4.0.0",
+    "zod": "^3.24.0"
   },
   "devDependencies": {
-    "typescript": "~6.0.2",
+    "@react-router/dev": "catalog:",
+    "@repo/vite-configs": "workspace:*",
+    "@stylexjs/unplugin": "catalog:",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "@typescript-eslint/utils": "catalog:",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "jsdom": "^26.1.0",
+    "typescript": "catalog:",
     "vite": "catalog:",
+    "vite-plugin-babel": "catalog:",
     "vite-plus": "catalog:"
   }
 }

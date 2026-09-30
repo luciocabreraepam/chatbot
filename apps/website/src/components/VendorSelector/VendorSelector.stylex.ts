@@ -1,0 +1,126 @@
+import * as stylex from "@stylexjs/stylex";
+import { colors, fontSize, radius, spacing } from "@/styles/tokens.stylex";
+
+export const styles = stylex.create({
+  root: {
+    display: "flex",
+    alignItems: "center",
+    gap: spacing.lg,
+    paddingTop: spacing.sm,
+    paddingBottom: spacing.sm,
+    paddingLeft: spacing.md,
+    paddingRight: spacing.md,
+    backgroundColor: colors.bgSurface,
+    borderBottom: `1px solid ${colors.border}`,
+    flexShrink: 0,
+    flexWrap: "wrap",
+  },
+  brand: {
+    display: "flex",
+    alignItems: "center",
+    gap: spacing.sm,
+    flexShrink: 0,
+  },
+  logo: {
+    color: colors.accent,
+    fontSize: fontSize.xl,
+    lineHeight: 1,
+  },
+  title: {
+    color: colors.textMain,
+    fontSize: fontSize.lg,
+    fontWeight: "600",
+    letterSpacing: "-0.02em",
+  },
+  controls: {
+    display: "flex",
+    alignItems: "flex-end",
+    gap: spacing.sm,
+    flexWrap: "wrap",
+    flex: 1,
+  },
+  field: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "3px",
+  },
+  fieldWide: {
+    minWidth: "180px",
+    flex: 1,
+  },
+  fieldModel: {
+    minWidth: "220px",
+    flex: 1,
+  },
+  label: {
+    fontSize: fontSize.xs,
+    color: colors.textMuted,
+    fontWeight: "500",
+    textTransform: "uppercase",
+    letterSpacing: "0.06em",
+  },
+  select: {
+    backgroundColor: colors.bgDark,
+    border: `1px solid ${colors.border}`,
+    borderRadius: radius.sm,
+    color: colors.textMain,
+    fontSize: fontSize.md,
+    paddingTop: "5px",
+    paddingBottom: "5px",
+    paddingLeft: spacing.sm,
+    paddingRight: spacing.sm,
+    outline: "none",
+    cursor: "pointer",
+    ":focus": {
+      borderColor: colors.accent,
+    },
+  },
+  modelSelect: {
+    flex: 1,
+    minWidth: 0,
+  },
+  modelRow: {
+    display: "flex",
+    gap: "4px",
+  },
+  input: {
+    backgroundColor: colors.bgDark,
+    border: `1px solid ${colors.border}`,
+    borderRadius: radius.sm,
+    color: colors.textMain,
+    fontSize: fontSize.md,
+    paddingTop: "5px",
+    paddingBottom: "5px",
+    paddingLeft: spacing.sm,
+    paddingRight: spacing.sm,
+    outline: "none",
+    width: "100%",
+    ":focus": {
+      borderColor: colors.accent,
+    },
+    "::placeholder": {
+      color: colors.textSubtle,
+    },
+  },
+  fetchBtn: {
+    backgroundColor: colors.bgElevated,
+    border: `1px solid ${colors.border}`,
+    borderRadius: radius.sm,
+    color: colors.textMain,
+    cursor: "pointer",
+    fontSize: fontSize.lg,
+    paddingTop: "5px",
+    paddingBottom: "5px",
+    paddingLeft: spacing.sm,
+    paddingRight: spacing.sm,
+    flexShrink: 0,
+    ":hover": {
+      backgroundColor: colors.accent,
+      borderColor: colors.accent,
+    },
+    ":disabled": {
+      opacity: 0.5,
+      cursor: "not-allowed",
+    },
+  },
+});

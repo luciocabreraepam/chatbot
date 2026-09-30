@@ -9,10 +9,11 @@
     "prepare": "vp config"
   },
   "devDependencies": {
+    "playwright-core": "catalog:",
     "vite-plus": "catalog:"
   },
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=25"
   },
   "packageManager": "pnpm@11.5.2"
 }

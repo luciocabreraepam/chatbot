@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /home/lucio/workspace/kota.agent.skills/skills/react-router-7-framework -type f | sort)",
+      "Read(//home/lucio/workspace/kota.agent.skills/skills/react-router-7-framework/**)",
+      "Bash(grep -E '\\\\.\\(json|yml|yaml|ts|js\\)$')",
+      "Bash(vp check *)",
+      "Bash(xargs ls -la)",
+      "Bash(npx tsc *)",
+      "Bash(cd /home/lucio/workspace/claude/multi-latest && echo \"--- CLAUDE.md ---\" && cat CLAUDE.md && echo \"--- .claude ---\" && find .claude -type f && echo \"--- src ---\" && find src -type f)",
+      "Read(//home/lucio/workspace/claude/multi-latest/**)",
+      "Bash(mkdir -p /home/lucio/workspace/claude/multi-latest/.claude/skills/audit-api-docs/references && echo ok)",
+      "Read(//home/lucio/workspace/claude/**)",
+      "Bash(xargs -I{} sh -c 'echo \"== {} ==\"; cat \"{}\"')",
+      "Read(//home/lucio/workspace/**)",
+      "Read(//home/lucio/**)",
+      "Bash(npm ls *)",
+      "Bash(find / -maxdepth 8 -iname \"cli.js\" -path \"*claude*\")",
+      "Bash(find / -maxdepth 6 -type d -iname \"@anthropic-ai\")",
+      "Bash(mkdir -p /home/lucio/workspace/claude/best/.agents/skills/deep-investigate/references)"
+    ],
+    "additionalDirectories": [
+      "/home/lucio/workspace/claude/multi-latest/.claude/skills/audit-api-docs",
+      "/home/lucio/workspace/claude/best/.agents/skills/deep-investigate"
+    ]
+  }
+}

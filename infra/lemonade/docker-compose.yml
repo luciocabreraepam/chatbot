@@ -1,0 +1,64 @@
+# services:
+#   lemonade:
+#     image: ghcr.io/lemonade-sdk/lemonade-server:latest
+#     container_name: lemonade-server
+#     ports:
+#       - "13305:13305"
+#     volumes:
+#       # Persist downloaded models
+#       - lemonade-cache:/root/.cache/huggingface
+#       # Persist llama binaries
+#       - lemonade-llama:/opt/lemonade/llama
+#       # Persist model options and other backend binaries
+#       - lemonade-recipe:/root/.cache/lemonade
+#     environment:
+#       - LEMONADE_LLAMACPP=cpu
+#     restart: unless-stopped
+
+# volumes:
+#   lemonade-cache:
+#   lemonade-llama:
+#   lemonade-recipe:
+services:
+  lemonade:
+    image: ghcr.io/lemonade-sdk/lemonade-server:latest
+    container_name: lemonade-server
+    ports:
+      - "13305:13305"
+    volumes:
+      - lemonade-cache:/root/.cache/huggingface
+      - lemonade-llama:/opt/lemonade/llama
+      - lemonade-recipe:/root/.cache/lemonade
+    environment:
+      - LEMONADE_LLAMACPP=cpu # Sticking to CPU for Laptop 1 execution loops
+      - LEMONADE_HOST=0.0.0.0 # Forces container to listen globally to internal services
+      - LEMONADE_ALLOW_ORIGINS=* # CRITICAL: Bypasses CORS security blocks on your web app browser
+    networks:
+      - localomni-net
+    restart: unless-stopped
+
+  # localomni-studio:
+  #   build:
+  #     context: ../../ # Lifts context to /home/lucio/workspace/chatbot
+  #     dockerfile: infra/lemonade/Dockerfile # Relative path from the new root context
+  #   container_name: localomni-studio-app
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - NODE_ENV=production
+  #     - LEMONADE_INTERNAL_URL=http://lemonade-server:13305
+  #     - LEMONADE_PUBLIC_URL=http://localhost:13305
+  #   networks:
+  #     - localomni-net
+  #   depends_on:
+  #     - lemonade
+  #   restart: unless-stopped
+
+volumes:
+  lemonade-cache:
+  lemonade-llama:
+  lemonade-recipe:
+
+networks:
+  localomni-net:
+    driver: bridge

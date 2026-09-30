@@ -1,0 +1,105 @@
+import * as stylex from "@stylexjs/stylex";
+import { colors, fontSize, radius, spacing } from "@/styles/tokens.stylex";
+
+export const styles = stylex.create({
+  root: {
+    borderTop: `1px solid ${colors.border}`,
+    paddingTop: spacing.sm,
+    paddingBottom: spacing.sm,
+    paddingLeft: spacing.md,
+    paddingRight: spacing.md,
+    flexShrink: 0,
+    display: "flex",
+    flexDirection: "column",
+    gap: "6px",
+  },
+  streamingIndicator: {
+    display: "flex",
+    alignItems: "center",
+    gap: "4px",
+    paddingLeft: spacing.xs,
+  },
+  dot: {
+    width: "5px",
+    height: "5px",
+    backgroundColor: colors.accent,
+    borderRadius: "50%",
+    animationName: stylex.keyframes({
+      "0%, 80%, 100%": { opacity: 0.2 },
+      "40%": { opacity: 1 },
+    }),
+    animationDuration: "1.2s",
+    animationIterationCount: "infinite",
+    ":nth-child(2)": { animationDelay: "0.2s" },
+    ":nth-child(3)": { animationDelay: "0.4s" },
+  },
+  streamingLabel: {
+    fontSize: fontSize.xs,
+    color: colors.accent,
+    marginLeft: "4px",
+  },
+  inputRow: {
+    display: "flex",
+    gap: spacing.sm,
+    alignItems: "flex-end",
+  },
+  textarea: {
+    flex: 1,
+    backgroundColor: colors.bgElevated,
+    border: `1px solid ${colors.border}`,
+    borderRadius: radius.md,
+    color: colors.textMain,
+    fontSize: fontSize.md,
+    lineHeight: "1.6",
+    outline: "none",
+    paddingTop: spacing.sm,
+    paddingBottom: spacing.sm,
+    paddingLeft: spacing.md,
+    paddingRight: spacing.md,
+    resize: "none",
+    fontFamily: "inherit",
+    overflowY: "auto",
+    ":focus": {
+      borderColor: colors.accent,
+    },
+    "::placeholder": {
+      color: colors.textSubtle,
+    },
+    ":disabled": {
+      opacity: 0.5,
+      cursor: "not-allowed",
+    },
+  },
+  sendBtn: {
+    backgroundColor: colors.bgElevated,
+    border: `1px solid ${colors.border}`,
+    borderRadius: radius.md,
+    color: colors.textMuted,
+    cursor: "pointer",
+    fontSize: fontSize.xl,
+    height: "38px",
+    width: "38px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexShrink: 0,
+    transition: "background-color 0.15s, border-color 0.15s, color 0.15s",
+    ":disabled": {
+      cursor: "not-allowed",
+      opacity: 0.4,
+    },
+  },
+  sendBtnActive: {
+    backgroundColor: colors.accent,
+    borderColor: colors.accent,
+    color: colors.textMain,
+    ":hover": {
+      backgroundColor: colors.accentHover,
+    },
+  },
+  hint: {
+    fontSize: fontSize.xs,
+    color: colors.textSubtle,
+    textAlign: "center",
+  },
+});
